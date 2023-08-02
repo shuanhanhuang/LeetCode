@@ -1,3 +1,5 @@
+#include<stdio.h>
+#include<stdlib.h>
 int myAtoi(char * s){
     if(strlen(s) == 0){
         return 0;
@@ -6,7 +8,8 @@ int myAtoi(char * s){
     int y = 0;
     int some = 0;
     char *word = (char*)malloc((strlen(s)+1)*sizeof(char));
-    for(int i=0;i<strlen(s);i++){
+    int i;
+    for(i=0;i<strlen(s);i++){
         
         if((int)s[i] >=48 && (int)s[i]<=57){
             word[index] = s[i];
@@ -59,7 +62,22 @@ int myAtoi(char * s){
         
         j = j + 1;
     }
-
-
     return y;
+}
+int main(void){
+	printf("盢块﹃锣传Θ计 -> 块﹃:");
+//	1. 沮 + ┪ - ∕﹚计程琌タ计临琌璽计
+//  2. 讽﹃笿獶计玥氨ゎじ
+//  3. 狦﹃常⊿Τ计玥块0
+//  4.  INT_MAX(2147483647) 玥块 2147483647   INT_MIN(-2147483648) 玥块 -2147483648
+	char s[80] = "";
+	
+	scanf("%s",&s);
+	
+//	int i;
+//	for(i=0; i<len; i++){
+//		printf("%c",*(s+i));
+//	}
+	int ans = myAtoi(s);
+	printf("%s 锣传计跑Θ --> %d",s,ans);
 }

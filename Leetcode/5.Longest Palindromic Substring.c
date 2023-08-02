@@ -1,3 +1,5 @@
+#include<stdio.h>
+#include<stdlib.h>
 void push(char a,char * stack,int* top){
     *top = *top+1;
     stack[*top] = a;
@@ -18,14 +20,14 @@ char * longestPalindrome(char * s){
         return s;
     }
     else{
-        for(int i=0;i<length-1;i++){
+    	int i,j,new1;
+        for(i=0;i<length-1;i++){
             top = -1;
             ans = 0;
-            for(int j=length-1;j>=i+1;j--){
+            for(j=length-1;j>=i+1;j--){
                 ans = 0;
-                if(j-i+1>max && s[i] == s[j]){
+                if(s[i] == s[j] && j-i+1>max){
                     count = j-i+1;
-            
                     for(k=i;k<i+count/2 ;k++){
                         push(s[k],stack,&top);
                     }
@@ -33,9 +35,9 @@ char * longestPalindrome(char * s){
                         k=k+1;
                         ans = ans + 1;
                     }
-                    for(int new=k ;new<=j ;new++){
+                    for(new1=k ;new1<=j ;new1++){
                         char temp = pop(stack,&top);
-                        if(temp != s[new]){
+                        if(temp != s[new1]){
                             ans = 0;
                             top = -1;
                             break;
@@ -49,12 +51,9 @@ char * longestPalindrome(char * s){
                         last = j;
                         max = count;
                         break;
-                    }
-                    
+                    }  
                 }
-                
             }
-            
         }
         if(max == 0){
             max = 1;
@@ -70,7 +69,14 @@ char * longestPalindrome(char * s){
         
         return word;
     }
-    
-    
-    
+}
+
+int main(void){
+	char s[] ="";
+	scanf("%s",&s);
+	char * ans = longestPalindrome(s);
+	int i;
+	for(i=0; i<strlen(ans); i++){
+		printf("%c",*(ans+i));
+	}
 }
