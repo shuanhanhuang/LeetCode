@@ -72,7 +72,8 @@ char * longestPalindrome(char * s){
 }
 
 int main(void){
-	char s[] ="";
+	char s[80] ="";
+	printf("找出字串中最長的回文子字串");
 	scanf("%s",&s);
 	char * ans = longestPalindrome(s);
 	int i;

@@ -57,7 +57,9 @@ char** middleFun(int n,int* returnsize){
 	return ans;
 }
 int main(void){
-	int n = 4;
+	int n;
+	printf("要產生幾個回文的括弧 : 請輸入一個數字 --> ");
+	scanf("%d",&n);
 	int returnsize = 0,i,j;
 	
 	char** ans1 = middleFun(n,&returnsize);

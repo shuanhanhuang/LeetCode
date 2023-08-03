@@ -52,11 +52,15 @@ char ** letterCombinations(char * digits, int* returnSize){
 
 }
 int main(void){
-	char* digits = "23";	
+	char* s;
+	char temp[80] = "";
+	printf("請輸入一組數字 : ");
+	scanf("%s",temp);
+	s = temp;	
 	int i,j;
 	int returnSize;
 	
-	char** answer =  letterCombinations(digits,&returnSize);
+	char** answer =  letterCombinations(s,&returnSize);
 	for(i=0; i<returnSize; i++){
 		printf("%s  ",answer[i]);	
 	}

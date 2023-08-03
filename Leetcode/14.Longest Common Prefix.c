@@ -1,8 +1,12 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h> 
 char * longestCommonPrefix(char ** strs, int strsSize){
     int min=strlen(strs[0]);
     int index=0;
     char* temp;
-    for(int i=1;i<strsSize;i++)
+    int i,j;
+    for(i=1;i<strsSize;i++)
     {
         if(strlen(strs[i])<min)
         {
@@ -11,41 +15,39 @@ char * longestCommonPrefix(char ** strs, int strsSize){
         }
     }
     temp = strs[index];
-    for(int i=0;i<min;i++)
+    for(i=0;i<min;i++)
     {
-        int word=strs[index][i];
-        for(int j=0;j<strsSize;j++)
+        char word=temp[i];      
+        for(j=0;j<strsSize;j++)
         {
-            
-            if(strlen(strs[j])==i||strs[j][i]!=word)
+            if(strs[j][i]!=word)
             {
+            	
                 temp[i]='\0';
-                
             }
         }
     }
     return temp;
 }
+int main(void){
+	printf("块﹃皚 : ");
+	int len;
+	scanf("%d",&len);
+	
+	char* strs[len];
+	char temp[len][200];
+	int i;
 
-// 贺糶猭 
-//char * longestCommonPrefix(char ** strs, int strsSize){
-//    char* temp;         //????才??秖temp
-//    int i, j;           
-//    
-//    if(strsSize <= 0)   //?????琌0琌???才﹃
-//        return "";
-//    
-//    temp = strs[0];     //?材?才﹃?秖钡??temp
-//    for(i=1; i<strsSize; i++){ 
-//        
-//        j=0;            //–Ω常??才﹃材?才ゑ?
-//        
-//        while(temp[j] && strs[i][j] && temp[j]==strs[i][j])     //–?才﹃蒓temp?秖?︽ゑ?
-//            j ++;
-//        
-//        temp[j] = '\0'; //ゑ??ぇ篒祏temp
-//    }
-//    
-//    return temp;
-//
-//}
+	for(i=0; i<len; i++){
+		printf("块﹃ : ");
+		scanf("%s",temp[i]);
+		strs[i] = temp[i];
+	}
+
+	
+	char * ans = longestCommonPrefix(strs,len);
+	for(i=0; i<strlen(ans); i++){
+		printf("%c",*(ans+i));
+	}
+}
+

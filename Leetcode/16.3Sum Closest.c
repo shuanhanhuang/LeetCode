@@ -36,9 +36,19 @@ int threeSumClosest(int* nums, int numsSize, int target){
     return ans;
 }
 int main(void){
-	int nums[] = {4,0,5,-5,3,3,0,-4,-5};
-	int targets = -2;
-	int ans = threeSumClosest(nums, sizeof(nums)/sizeof(nums[0]), targets);
+	printf("找出陣列中和目標數字最接近的總和 : 陣列大小是多少 --> ");
+	int len,i;
+	scanf("%d",&len);
+	int nums[len];
+	printf("輸入 %d 個數字: ",len);
+	for(i=0; i<len; i++){
+		scanf("%d",&nums[i]);
+	}
+	
+	printf("輸入一個目標數字 : ");
+	int targets;
+	scanf("%d",&targets);
+	int ans = threeSumClosest(nums, len, targets);
 	printf("ans: %d",ans);
 	
 	

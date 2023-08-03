@@ -22,9 +22,11 @@ int lengthOfLongestSubstring(char * s){
 }
 int main(void){
 
-	char s[]=""; 
-	scanf("%s",&(s)); 
-
+	char* s;
+	char temp[80] = "";
+	printf("找出字串中最長且不重複的子字串 : 請輸入一個字串 --> ");
+	scanf("%s",temp);
+	s = temp;
 	int ans = lengthOfLongestSubstring(s);
 	printf("%d",ans);
 }

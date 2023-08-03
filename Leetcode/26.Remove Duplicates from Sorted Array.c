@@ -13,16 +13,22 @@ int removeDuplicates(int* nums, int numsSize){
     
 }
 int main(void){
-	int nums[] = {0,0,1,1,1,2,2,3,3,4};
-	int nums_len = sizeof(nums)/sizeof(nums[0]);
+	printf("找出陣列中不重複的數字 : 陣列大小是多少 --> ");
+	int len,i;
+	scanf("%d",&len);
+	int nums[len];
+	printf("輸入 %d 個數字: ",len);
+	for(i=0; i<len; i++){
+		scanf("%d",&nums[i]);
+	}
+
 	
 	printf("nums : ");
-	int i;
-	for(i=0; i<nums_len; i++){
+	for(i=0; i<len; i++){
 		printf("%d ",nums[i]);
 	}
 	
-	int count = removeDuplicates(nums,nums_len);
+	int count = removeDuplicates(nums,len);
 	printf("\nnums 非重複值有%d個",count);
 	
 	int j;
