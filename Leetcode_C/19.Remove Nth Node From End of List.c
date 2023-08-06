@@ -1,26 +1,64 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
-struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
-    int count = 1;
+#include<stdio.h>
+#include<stdlib.h>
+//typedef struct listnode* ListNode;
+typedef struct ListNode {
+	int data;
+	struct ListNode* next;
+}node,*nodeptr;
+nodeptr removeNthFromEnd(nodeptr head, int n);
+int main(void){
+	printf("輸入要建立多長的linked list : ");
+	int len,i,num,n;
+	scanf("%d",&len);
+	
+	nodeptr a,ans;
+	nodeptr head = NULL;
+	nodeptr temp = NULL;
+	
+	
+	for(i=0; i<len; i++){
+		printf("輸入數字 : ");
+		scanf("%d",&num);
+		a = (nodeptr) malloc(sizeof(node));
+		a->data = num;
+		a->next = NULL;
+		if(head != NULL){	
+			head-> next = a;	
+		}
+		else{
+			temp= a;
+		}		
+		head = a;
+		
+	}
+
+	printf("請輸入要刪除倒數第幾個node : ");
+	scanf("%d",&n);
+	
+	ans = removeNthFromEnd(temp,n);
+	printf("\n刪除後的linked-list : ");
+	while(ans != NULL){
+		printf("%d ",ans->data);
+		ans = ans->next;
+	}
+}
+nodeptr removeNthFromEnd(nodeptr head, int n){
+    int count = 0;
     int index = 1;
-    struct ListNode* p = head;
-    struct ListNode* temp = head;
-    while(p->next != NULL){
+    nodeptr p = head;
+    nodeptr temp = head;
+    int i;
+    while(p != NULL){
         count = count + 1;
-        p = p ->next;
+        p = p->next;
     }
-    printf("%d\n",count);
+
     if(n == 1){
         if(count == 1){
             temp = NULL;
         }
         else{
-            for(int i=0; i<count-2;i++){
+            for(i=0; i<count-2;i++){
                     head = head->next;
             }
             head->next = NULL;
@@ -41,5 +79,8 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
         }
     }
 
+	
     return temp;
 }
+
+

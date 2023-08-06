@@ -19,7 +19,6 @@ int threeSumClosest(int* nums, int numsSize, int target){
                     ans = sum;
                 }
                 if(sum > target){
-                    // printf("bbb\n");
                     k--;
                 }
                 else if(sum < target){

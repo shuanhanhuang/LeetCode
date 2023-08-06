@@ -8,8 +8,6 @@ void recurFun(char* temp, int index, int n, int close, int open, int max){
 
 	if(close == n){
 		temp[index] = '\0'; 
-		printf("aaa\n");
-		printf("%d\n", index1);
 		ans = realloc(ans,sizeof(char*)* (index1+1));
 		ans[index1] = (char*)malloc(sizeof(char)* (max+1));
 		strcpy(ans[index1],temp);
@@ -18,15 +16,11 @@ void recurFun(char* temp, int index, int n, int close, int open, int max){
 	}
 	else{
 		if(open > close){
-			printf("aaa\n"); 
 			temp[index] = ')';
-			printf("%d\n",index);
 			recurFun(temp, index+1,n, close+1, open, max);
 		}
 		if(open<n){
-			printf("bbb\n"); 
 			temp[index] = '(';
-			printf("%d\n",index);
 			recurFun(temp, index+1,n, close, open+1, max); 
 		}
 		
@@ -47,13 +41,6 @@ char** middleFun(int n,int* returnsize){
 	recurFun(temp, index, n, close, open, max);
 	*returnsize = index1;
 	
-//	printf("%d,%d\n",*returnsize,max);
-//	for(i=0; i<returnsize; i++){
-//		for(j=0; j<max; j++){
-//			printf("%c",ans[i][j]);
-//		}
-//		printf("\n");
-//	}
 	return ans;
 }
 int main(void){
@@ -71,7 +58,4 @@ int main(void){
 		printf("\n");
 	}
 	
-	
-
-//	printf("\n");
 }
