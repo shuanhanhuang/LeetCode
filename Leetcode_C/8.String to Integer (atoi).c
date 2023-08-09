@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 int myAtoi(char * s){
     if(strlen(s) == 0){
         return 0;
@@ -70,14 +71,11 @@ int main(void){
 //  2. 當字串遇到非數字則停止後面的字元
 //  3. 如果字串都沒有數字則輸出0
 //  4. 大於 INT_MAX(2147483647) 則輸出 2147483647  ， 小於INT_MIN(-2147483648) 則輸出 -2147483648
-	char s[80] = "";
-	
-	scanf("%s",&s);
-	
-//	int i;
-//	for(i=0; i<len; i++){
-//		printf("%c",*(s+i));
-//	}
+	char temp[80] = "";
+	scanf("%s",temp);
+	char* s;
+	s = temp;
+
 	int ans = myAtoi(s);
 	printf("%s 轉換為數字變成 --> %d",s,ans);
 }
