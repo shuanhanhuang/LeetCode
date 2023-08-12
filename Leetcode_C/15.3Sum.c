@@ -1,12 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
-
- int cmp(int *a, int *b)
- {
-     return *a - *b;
- }
-int** threeSum(int *nums, int numsSize, int *returnSize, int**returnColumnSizes)
-{
+int cmp(int *a, int *b){
+	return *a - *b;
+}
+int** threeSum(int *nums, int numsSize, int *returnSize, int**returnColumnSizes){
 	int rstSize = 0;
     int basicSize = 8;
     
